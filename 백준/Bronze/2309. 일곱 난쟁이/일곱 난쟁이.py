@@ -15,9 +15,10 @@ for i in range(N-1):
         if flag:
             break
         if lst[i]+lst[j]==ans:
-            del lst[j]
-            del lst[i]
+            A= lst[j]
+            B= lst[i]
             flag=1
 
 for i in lst:
-    print(i)
+    if A != i and B !=i:
+        print(i)
