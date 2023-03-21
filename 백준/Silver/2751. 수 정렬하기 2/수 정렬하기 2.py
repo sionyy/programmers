@@ -1,9 +1,8 @@
-N = int(input())
+n=int(input())
 lst=[]
-
-for i in range(N):
+for i in range(n):
     lst.append(int(input()))
 lst.sort()
 
-for i in range(len(lst)):
-    print(lst[i])
+for i in lst:
+    print(i)
