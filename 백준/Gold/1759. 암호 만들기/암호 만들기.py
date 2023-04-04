@@ -1,6 +1,6 @@
 L,M=map(int,input().split())
 lst=input().split()
-
+lst.sort()
 path=[0]*L
 ans=[]
 def dfs(start,level):
@@ -23,6 +23,5 @@ def dfs(start,level):
 dfs(0,0)
 
 
-ans.sort()
 for i in range(len(ans)):
     print(''.join(ans[i]))
