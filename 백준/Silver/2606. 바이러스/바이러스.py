@@ -1,3 +1,5 @@
+import sys
+input=sys.stdin.readline
 N=int(input())
 M=int(input())
 adj=[[] for _ in range(N+1)]
@@ -10,13 +12,13 @@ for i in range(M):
 def dfs(n):
     if visit[n]==1:
         return
-    go.append(n)
+    ans.append(n)
     visit[n]=1
     for i in adj[n]:
         dfs(i)
 
 
 visit=[0]*(N+1)
-go=[]
+ans=[]
 dfs(1)
-print(len(go)-1)
+print(len(ans)-1)
