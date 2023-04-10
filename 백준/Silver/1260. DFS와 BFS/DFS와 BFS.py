@@ -1,3 +1,7 @@
+from collections import deque
+import sys
+input=sys.stdin.readline
+
 N,M,V=map(int,input().split())
 adj=[[] for _ in range(N+1)]
 for _ in range(M):
@@ -15,13 +19,13 @@ def dfs(n):
             dfs(i)
 
 def bfs(n):
-    q=[]
+    q=deque()
     q.append(n)
     ans_bfs.append(n)
     visit[n]=1
 
     while q:
-        now=q.pop(0)
+        now=q.popleft()
         for i in adj[now]:
             if not visit[i]:
                 q.append(i)
