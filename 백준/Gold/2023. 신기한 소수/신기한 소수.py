@@ -1,3 +1,5 @@
+import sys
+input=sys.stdin.readline
 n=int(input())
 def 소수판별(숫자):
     for i in range(2,(int(숫자**0.5))+1):
