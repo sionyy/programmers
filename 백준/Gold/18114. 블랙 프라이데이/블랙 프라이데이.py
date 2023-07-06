@@ -19,6 +19,4 @@ def solution(now):
             now+=1
     return 0
 
-
-
 print(solution(0))
