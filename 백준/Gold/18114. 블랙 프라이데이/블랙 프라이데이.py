@@ -1,37 +1,24 @@
 import sys
-input=sys.stdin.readline
-N,target=map(int,input().split())
-data=list(map(int,input().split()))
-data.sort()
+input = sys.stdin.readline
 
-def binary_search(arr, left, right, target):
-    while left <= right:
-        mid = (left + right) // 2
-        if arr[mid] == target:
-            return 1
-        elif arr[mid] < target:
-            left = mid + 1
-        else:
-            right = mid - 1
-    return 0
-
-def find():
-    #1개 찾기
-    if binary_search(data,0,N-1,target):
+def solution(now):
+    N, target = map(int, input().split())
+    lst = sorted(list(map(int, input().split())))
+    box = set([0] + lst) # 중요
+    if target in box: #한개
         return 1
-
-    left,right=0,N-1
-    while left<right:
-        summ=data[left]+data[right]
-        if summ==target: #2개 검사
+    while now < N-1: #끝까지 탐색
+        left, right = lst[now], lst[N-1] #left, right 설정
+        new_target = target-left-right
+        #set(0)을 추가하여 2개와 3개를 동시에 검색
+        if new_target != left and new_target != right and new_target in box:
             return 1
-        elif summ>target:
-            right-=1
+        if new_target < 0:
+            N-=1
         else:
-            new_target = target-summ
-            if data[left]!=new_target and data[right]!=new_target and binary_search(data,left,right,new_target):
-               return 1
-            left+=1
+            now+=1
     return 0
 
-print(find())
+
+
+print(solution(0))
